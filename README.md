@@ -8,7 +8,6 @@
 Useful tools for developer and people working in IT. <a href="https://it-tools.tech">Try it!</a>
 </p>
 
-
 ## Sponsors
 
 <div align="center" markdown="1">
@@ -21,6 +20,7 @@ Useful tools for developer and people working in IT. <a href="https://it-tools.t
 </a>
 
 ### [Warp, built for coding with multiple AI agents.](https://go.warp.dev/it-tools)
+
 [Available for MacOS, Linux, & Windows](https://go.warp.dev/it-tools)<br>
 
 </div>

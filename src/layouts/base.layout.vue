@@ -60,7 +60,7 @@ const tools = computed<ToolCategory[]>(() => [
         <CollapsibleToolMenu :tools-by-category="tools" />
 
         <div class="footer">
-          <div>
+          <!-- <div>
             IT-Tools
 
             <c-link target="_blank" rel="noopener" :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`">
@@ -78,11 +78,11 @@ const tools = computed<ToolCategory[]>(() => [
                 {{ commitSha }}
               </c-link>
             </template>
-          </div>
+          </div> -->
           <div>
             © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://corentin.tech?utm_source=it-tools&utm_medium=footer">
-              Corentin Thomasset
+            <c-link target="_blank" rel="noopener" href="https://habibullah.dev">
+             Drafted by  HABIBULLAH
             </c-link>
           </div>
         </div>
