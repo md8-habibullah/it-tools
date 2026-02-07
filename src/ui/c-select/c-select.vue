@@ -1,3 +1,5 @@
+<!-- No need Language features | Disabled -->
+
 <script setup lang="ts" generic="T extends unknown">
 import { useAppTheme } from '../theme/themes';
 import type { CLabelProps } from '../c-label/c-label.types';
@@ -13,7 +15,7 @@ const props = withDefaults(
     placeholder?: string
     size?: 'small' | 'medium' | 'large'
     searchable?: boolean
-  } & CLabelProps >(),
+  } & CLabelProps>(),
   {
     options: () => [],
     value: undefined,
@@ -140,18 +142,13 @@ function onSearchInput() {
 <template>
   <c-label v-bind="props">
     <div ref="elementRef" relative class="c-select" w-full>
-      <div
-        flex flex-nowrap cursor-pointer items-center
-        :class="{ 'is-open': isOpen, 'important:border-primary': isOpen }"
-        class="c-select-input"
-        tabindex="0"
-        hover:important:border-primary
-        @click="toggleOpen"
-        @keydown="handleKeydown"
-      >
+      <div flex flex-nowrap cursor-pointer items-center
+        :class="{ 'is-open': isOpen, 'important:border-primary': isOpen }" class="c-select-input" tabindex="0"
+        hover:important:border-primary @click="toggleOpen" @keydown="handleKeydown">
         <div flex-1 truncate>
           <slot name="displayed-value">
-            <input v-if="searchable && isOpen" ref="searchInputRef" v-model="searchQuery" type="text" placeholder="Search..." class="search-input" w-full lh-normal color-current @input="onSearchInput">
+            <input v-if="searchable && isOpen" ref="searchInputRef" v-model="searchQuery" type="text"
+              placeholder="Search..." class="search-input" w-full lh-normal color-current @input="onSearchInput">
             <span v-else-if="selectedOption" lh-normal>
               {{ selectedOption.label }}
             </span>
@@ -165,7 +162,8 @@ function onSearchInput() {
       </div>
 
       <transition name="dropdown">
-        <div v-show="isOpen" class="c-select-dropdown" absolute z-10 mt-1 max-h-312px w-full overflow-y-auto pretty-scrollbar>
+        <div v-show="isOpen" class="c-select-dropdown" absolute z-10 mt-1 max-h-312px w-full overflow-y-auto
+          pretty-scrollbar>
           <template v-if="!filteredOptions.length">
             <slot name="empty">
               <div px-4 py-1 opacity-70>
@@ -174,16 +172,9 @@ function onSearchInput() {
             </slot>
           </template>
           <template v-else>
-            <div
-              v-for="(option, index) in filteredOptions"
-              :key="option.label"
-              cursor-pointer
-              px-4
-              py-1
+            <div v-for="(option, index) in filteredOptions" :key="option.label" cursor-pointer px-4 py-1
               :class="{ active: selectedOption?.label === option.label, hover: focusIndex === index }"
-              class="c-select-dropdown-option"
-              @click="selectOption({ option })"
-            >
+              class="c-select-dropdown-option" @click="selectOption({ option })">
               {{ option.label }}
             </div>
           </template>
@@ -195,7 +186,7 @@ function onSearchInput() {
 
 <style lang="less" scoped>
 .c-select {
-  .search-input{
+  .search-input {
     all: unset;
 
     &::placeholder {
@@ -213,7 +204,8 @@ function onSearchInput() {
     height: v-bind('size.height');
     transition: border-color 0.2s ease-in-out;
 
-    .placeholder, .chevron {
+    .placeholder,
+    .chevron {
       color: v-bind('appTheme.text.mutedColor');
     }
   }
@@ -228,7 +220,7 @@ function onSearchInput() {
     line-height: 1;
     padding: 6px;
 
-    .c-select-dropdown-option{
+    .c-select-dropdown-option {
       border-radius: 4px;
       padding: 8px 12px;
       background-color: transparent;
@@ -238,7 +230,8 @@ function onSearchInput() {
         color: v-bind('theme.option.active.textColor');
       }
 
-      &:hover, &.hover {
+      &:hover,
+      &.hover {
         background-color: v-bind('theme.option.hover.backgroundColor');
       }
     }
